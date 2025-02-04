@@ -1,3 +1,4 @@
+import 'module-alias/register'; // To use the alias in the import statement
 import express, { Request, Response } from "express";
 import env from "@config/environment";
 
