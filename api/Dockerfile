@@ -6,5 +6,5 @@ RUN npm install -g pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cb
 RUN pnpm install
 COPY . .
 EXPOSE 3001
-CMD ["pnpm", "build"]
+RUN pnpm build
 CMD ["pnpm", "start"]
