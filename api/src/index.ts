@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import env from "./config/environment";
+import env from "@config/environment";
 
 const app = express();
 const PORT = env.PORT || 3000;

@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import env from "./environment";
+import env from "@config/environment";
 
 // Initialize SQLite database (stored locally in the container)
 export const db = new Sequelize({
