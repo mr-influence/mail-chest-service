@@ -20,7 +20,7 @@ COPY . .
 RUN pnpm run build
 
 # Expose the port the application will run on
-EXPOSE 3001
+EXPOSE 80
 
 # Start the application Using the production command from the package.json
 CMD ["pnpm", "start"]
