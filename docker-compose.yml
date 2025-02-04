@@ -6,8 +6,6 @@ services:
       - "25:25"
     volumes:
       - ./maildata:/home/mailuser
-    networks:
-      - email-net
     restart: unless-stopped
 
   api:
