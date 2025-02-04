@@ -1,22 +1,26 @@
 # ./email-api/Dockerfile
-FROM node:22.13.1-alpine
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+FROM node:22.13.1-alpine as builder
 
+# Install pnpm globally
+RUN npm install -g pnpm
+
+# Create app directory
 WORKDIR /app
+
+# Copy package.json and pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies (including dev dependencies for building)
+RUN pnpm install
+
+# Copy the rest of the application code
 COPY . .
 
-FROM base AS prod-deps
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
-
-FROM base AS build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+# Build the application
 RUN pnpm run build
 
-FROM base
-COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/dist /app/dist
-
+# Expose the port the application will run on
 EXPOSE 3001
+
+# Start the application Using the production command from the package.json
 CMD ["pnpm", "start"]
