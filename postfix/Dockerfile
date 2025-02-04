@@ -8,6 +8,9 @@ RUN apt-get update && \
 # Create a local user to receive all mail
 RUN useradd -m mailuser
 
+# Create /etc/mailname (required by Postfix)
+RUN echo "$MAILNAME" > /etc/mailname
+
 # Copy custom Postfix configuration files
 COPY main.cf /etc/postfix/main.cf
 COPY virtual /etc/postfix/virtual
