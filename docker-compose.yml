@@ -1,0 +1,19 @@
+services:
+  postfix:
+    build: ./postfix
+    container_name: postfix
+    ports:
+      - "25:25"
+    volumes:
+      - ./maildata:/home/mailuser
+    networks:
+      - email-net
+    restart: unless-stopped
+
+  api:
+    build: ./api
+    container_name: api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./maildata:/home/mailuser
