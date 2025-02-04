@@ -9,7 +9,7 @@ RUN apt-get update && \
 RUN useradd -m mailuser
 
 # Create /etc/mailname (required by Postfix)
-RUN echo "$MAILNAME" > /etc/mailname
+RUN echo "mail.mailfluence.top" > /etc/mailname
 
 # Copy custom Postfix configuration files
 COPY main.cf /etc/postfix/main.cf
