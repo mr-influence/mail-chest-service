@@ -7,5 +7,3 @@ RUN pnpm install
 EXPOSE 3001
 RUN pnpm build
 COPY . .
-
-CMD ["/bin/sh", "-c", "pnpm start"]
