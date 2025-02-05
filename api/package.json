@@ -4,13 +4,12 @@
   "description": "",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node --env-file=.env dist/index.js",
+    "start": "tsc && node dist/index.js",
     "dev": "node -r ts-node/register --env-file=dev.env --watch-path ./src  ./src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
   "dependencies": {
     "express": "4.21.2",
     "mailparser": "3.7.2",
@@ -21,9 +20,8 @@
     "@types/express": "5.0.0",
     "@types/node": "22.13.1",
     "module-alias": "2.2.3",
-    "nodemon": "3.1.9",
     "ts-node": "10.9.2",
-    "typescript": "5.7.3"
+    "typescript": "^5.7.3"
   },
   "_moduleAliases": {
     "@config": "dist/config",
