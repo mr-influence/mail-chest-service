@@ -35,6 +35,10 @@ const User = db.define("user", {
     type: DataTypes.DATE,
     allowNull: false,
   },
+  is_readed: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  }
 });
 
 module.exports = User;
