@@ -2,19 +2,23 @@ services:
   postfix:
     build: ./postfix
     container_name: postfix
+    env_file:
+      - path: ".env"
+        required: true
     ports:
-      - "25:25"
+      - ${POSTFIX_PORT}:${POSTFIX_PORT}
     volumes:
       - ./maildata:/home/mailuser
     restart: unless-stopped
-    environment:
-      - MAILNAME=mail.mailfluence.top
 
   api:
     build: ./api
     container_name: api
+    env_file:
+      - path: ".env"
+        required: true
     command: pnpm start
     ports:
-      - "80:80"
+      - ${API_PORT}:${API_PORT}
     volumes:
       - ./maildata:/home/mailuser
