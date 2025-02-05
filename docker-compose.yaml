@@ -6,7 +6,7 @@ services:
       - path: ".env"
         required: true
     ports:
-      - ${POSTFIX_PORT}:${POSTFIX_PORT}
+      - "${POSTFIX_PORT}:${POSTFIX_PORT}"
     volumes:
       - ./maildata:/home/mailuser
     restart: unless-stopped
@@ -17,7 +17,6 @@ services:
     env_file:
       - path: ".env"
         required: true
-    command: pnpm start
     ports:
       - ${API_PORT}:${API_PORT}
     volumes:
