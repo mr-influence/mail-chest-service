@@ -3,6 +3,6 @@ import catchEmailRoutes from "./catchEmail.routes";
 
 const routes = express.Router();
 
-routes.use("/catch-email", catchEmailRoutes);
+routes.use("/", catchEmailRoutes);
 
 export default routes;
